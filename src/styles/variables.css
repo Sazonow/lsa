@@ -1,0 +1,23 @@
+:root {
+  --bg: #f9f7f4;
+  --paper: #ffffff;
+  --paper-soft: #f2ede5;
+  --cream: #eee7dd;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --muted: #6f6960;
+  --line: #e5ded2;
+  --line-dark: rgba(205, 154, 90, 0.22);
+  --dark: #080b0b;
+  --dark-2: #111313;
+  --gold: #c99350;
+  --gold-2: #efbf78;
+  --gold-3: #a8773d;
+  --gold-deep: #7d552d;
+  --gold-pale: #ffe1ad;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Inter", Arial, sans-serif;
+}

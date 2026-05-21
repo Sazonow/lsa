@@ -1,0 +1,28 @@
+# AGENTS.md
+
+## Working Mode
+- No Figma is available.
+- The project already exists and must be finished against `references/mockup.jpg`.
+- Preserve the current concept, structure, and design direction.
+- Work on one page, section, or component at a time.
+- Do not do a full redesign without explicit permission.
+- Do not rewrite unrelated files.
+- Do not add dependencies without permission.
+- Do not touch env files, secrets, tokens, billing, production deploy, or production settings.
+
+## Reporting
+- Keep explanations short.
+- Final replies should include only changed files, checks, risks, and next step.
+- Update `TASK_STATE.md` after every completed step.
+
+## Tools
+- Use Browser/preview for visual checks when available.
+- Use Playwright for responsive checks when available.
+- If Serena is available, use it for targeted search and precise edits.
+- If Repomix is available, use it only when a compact project overview is needed.
+- If Context7 is available, use it only for a concrete library documentation issue.
+
+## UI Rules
+- Use shadcn only for forms, buttons, cards, modals, tables, and inputs.
+- For premium visual sections, use custom CSS/Tailwind-style project styling or the existing design system.
+- Do not copy obvious graphical defects from the mockup.
