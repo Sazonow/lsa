@@ -15,6 +15,7 @@ SCREENSHOT PROJECT FINISH MODE
 - Client-side Telegram Bot API call removed from `src/utils/contactService.ts`.
 - Safe mock contact submit kept.
 - Backend contact delivery plan documented in `BACKEND_TODO.md`.
+- Home Hero + Header visual pass completed: lighter header, higher hero content, CTA inside content zone, full-height hero image, softer absolute bottom curve.
 
 ## Pages And Sections
 - Home: hero, feature strip, practice cards, quote band, footer.
@@ -40,6 +41,8 @@ SCREENSHOT PROJECT FINISH MODE
 - `npm run build`: passed on 2026-05-21.
 - `rg "home\\.hero\\.(desc|btn1|btn2)" src`: no matches.
 - `rg "VITE_TELEGRAM_BOT_TOKEN|api.telegram.org" src`: no matches.
+- Home `/` Browser visual check: desktop 1280px, tablet 900px, and mobile 390px checked.
+- Horizontal overflow check: no overflow at 1280px, 900px, or 390px widths.
 
 ## Risks
 - No real contact message delivery until backend/serverless endpoint is added.
@@ -47,4 +50,4 @@ SCREENSHOT PROJECT FINISH MODE
 - Visual work can drift if multiple pages are changed at once.
 
 ## Next Step
-- Start visual finishing with the Home page `/`, then move page by page through the mockup.
+- Continue Home visual finishing with the feature strip.
