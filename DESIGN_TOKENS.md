@@ -1,19 +1,30 @@
 # DESIGN_TOKENS.md
 
 ## Visual Concept
-- Premium legal-office website for "КОРТ РАЙДЕР".
-- Warm paper background, dark legal imagery, gold accents, restrained serif typography.
-- Compact framed pages on desktop with polished cards, soft shadows, and editorial spacing.
+- v2 is the primary art direction for "КОРТ РАЙДЕР".
+- The site should feel like strategic legal case leadership, not a generic legal landing page.
+- Style: premium legal, editorial, cinematic, restrained.
+- Warm paper background, dark legal imagery, graphite text, muted gold accents, restrained serif typography.
+- Compact framed pages on desktop with polished cards, soft shadows, and deliberate editorial rhythm.
+
+## Strategic Line System
+- The thin gold strategic line is the main visual motif.
+- Meaning: position -> strategy -> action -> result.
+- It starts in Hero, guides the eye into Values, later connects Practices, Process, Experience, and Contact.
+- The line must stay quiet, thin, muted, and legal/editorial; it must not look neon, thick, playful, or decorative without meaning.
+- Current implementation stage: static foundation only. Motion, parallax, route drawing, and scroll effects come later.
 
 ## Preserve
 - Existing brand direction, logo marks, legal tone, UA/RU content, and seven-page structure.
 - Dark hero with Lady Justice visual and gold CTAs.
 - Cream paper surfaces, charcoal panels, gold iconography, serif headings.
+- Existing React/Vite structure, manual routing, and multilingual content.
 
 ## Improve
 - Match `references/mockup.jpg` more closely while avoiding its graphical artifacts.
 - Tighten spacing, image crops, typographic rhythm, card density, and mobile behavior.
 - Replace non-mockup UI where needed in small focused steps.
+- Build Home v2 incrementally: B-1 Hero + Values static foundation, B-2 Practices as Case Files, B-3 Strategy Route static, B-4 motion only after static layout is stable.
 
 ## Colors
 - Background: `--bg #f9f7f4`

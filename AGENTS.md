@@ -22,6 +22,18 @@
 - If Repomix is available, use it only when a compact project overview is needed.
 - If Context7 is available, use it only for a concrete library documentation issue.
 
+## Local skills
+Use these repo-local skills from `.agents/skills`:
+- `$economy-direct-patch` for direct low-token patches.
+- `$screenshot-home-polish` for Home visual work.
+- `$conversion-flow-polish` for Contacts + Thank-you.
+- `$content-pages-polish` for About / Practices / Experience / Process.
+- `$visual-diff-fix` for short user-provided visual corrections.
+- `$final-qa-release` for final QA.
+
+Prefer explicit skill invocation with `$skill-name`.
+Do not use Figma skills because there is no Figma source.
+
 ## UI Rules
 - Use shadcn only for forms, buttons, cards, modals, tables, and inputs.
 - For premium visual sections, use custom CSS/Tailwind-style project styling or the existing design system.

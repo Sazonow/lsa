@@ -1,10 +1,12 @@
 # TASK_STATE.md
 
 ## Current Mode
-SCREENSHOT PROJECT FINISH MODE
+SCREENSHOT PROJECT FINISH MODE / Strategic Line Home v2
 
 ## Current Mockup
 - `references/mockup.jpg`
+- Home reference: `public/reference/01_home.png`
+- Current slice: B-1 Static Strategic Line foundation: Hero -> Values.
 
 ## Completed In This Step
 - Root working rules documented in `AGENTS.md`.
@@ -16,6 +18,10 @@ SCREENSHOT PROJECT FINISH MODE
 - Safe mock contact submit kept.
 - Backend contact delivery plan documented in `BACKEND_TODO.md`.
 - Home Hero + Header visual pass completed: lighter header, higher hero content, CTA inside content zone, full-height hero image, softer absolute bottom curve.
+- Strategic Line v2 art direction documented in `DESIGN_TOKENS.md`.
+- B-1 static strategic line foundation added to Home Hero and Values.
+- GSAP was not added.
+- Dependencies were not changed.
 
 ## Pages And Sections
 - Home: hero, feature strip, practice cards, quote band, footer.
@@ -43,6 +49,8 @@ SCREENSHOT PROJECT FINISH MODE
 - `rg "VITE_TELEGRAM_BOT_TOKEN|api.telegram.org" src`: no matches.
 - Home `/` Browser visual check: desktop 1280px, tablet 900px, and mobile 390px checked.
 - Horizontal overflow check: no overflow at 1280px, 900px, or 390px widths.
+- B-1 final verification on 2026-05-23: `npm run build` passed.
+- B-1 Browser check on 2026-05-23: desktop 1280px and mobile 390px checked, no horizontal overflow, Hero and Values strategic-line elements present.
 
 ## Risks
 - No real contact message delivery until backend/serverless endpoint is added.
@@ -50,4 +58,4 @@ SCREENSHOT PROJECT FINISH MODE
 - Visual work can drift if multiple pages are changed at once.
 
 ## Next Step
-- Continue Home visual finishing with the feature strip.
+- B-2: Practices as Case Files.

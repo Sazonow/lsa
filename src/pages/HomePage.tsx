@@ -106,6 +106,10 @@ export function HomePage({ navigate, route }: { navigate: Navigate; route: Route
           <h1 className="reveal reveal-up">
             {t("home.hero.title")}
           </h1>
+          <div className="hero-strategic-line reveal reveal-up reveal-delay-1" aria-hidden="true">
+            <span />
+            <i />
+          </div>
           <p className="hero-subtitle reveal reveal-up reveal-delay-1">
             Право. Стратегія. Результат.
           </p>
@@ -121,6 +125,7 @@ export function HomePage({ navigate, route }: { navigate: Navigate; route: Route
             </LinkButton>
           </div>
         </div>
+        <div className="hero-strategic-continuation" aria-hidden="true" />
 
         <div className="hero-curve" aria-hidden="true">
           <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
@@ -130,6 +135,12 @@ export function HomePage({ navigate, route }: { navigate: Navigate; route: Route
       </section>
 
       <section className="feature-strip">
+        <div className="values-strategic-line" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <span />
+        </div>
         <Feature icon={Target} title={t("home.feature1.title")} delayClass="reveal-delay-1">
           {t("home.feature1.desc")}
         </Feature>
