@@ -1,3 +1,13 @@
+Home B-4.3: Landing Premium Polish has been implemented on branch `codex/court-rider-landing`.
+
+- Tightened the Home hero height on desktop and mobile so the first viewport shows a clear continuation into the values section.
+- Changed the primary Home CTA into a restrained muted-gold button matching the mockup direction more closely.
+- Restored the strategic route strip on desktop as a compact premium motion section between values and practices.
+- Refined Home practice card spacing, borders, and title scaling for a less template-like legal case-file feel.
+- Returned the Home quote band to a centered rounded editorial panel instead of a flat full-width strip.
+- Verified local dev route and responsive screenshots at 1440x1000 and 390x900 with headless Chrome; Chrome required manual process cleanup after writing screenshots.
+- `npm run build`, `npm run verify:translations`, and `npm run verify:assets` pass.
+
 Fullscreen Desktop F-1: Page-frame removal and full-width layout pass has been implemented.
 
 - Converted the app shell and page frame from a centered 1120px window into full-width page surfaces.
