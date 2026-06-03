@@ -1,5 +1,6 @@
 import { useId } from "react";
-import { useLanguage } from "../context/LanguageContext";
+
+const originalLogoPath = "/assets/brand/cr-logo-gold-lockup.png";
 
 export function BrandLogo({
   compact = false,
@@ -8,38 +9,27 @@ export function BrandLogo({
   compact?: boolean;
   prominent?: boolean;
 }) {
-  const { t } = useLanguage();
-
   return (
-    <div className={`brand ${compact ? "compact" : ""} ${prominent ? "prominent" : ""}`}>
-      <BrandMark className={`brand-emblem ${compact ? "compact" : ""} ${prominent ? "prominent" : ""}`} />
-      <span className="brand-copy">
-        <span className="brand-name">КОРТ РАЙДЕР</span>
-        <span className="brand-subtitle">Адвокатське об'єднання</span>
-      </span>
+    <div className={`brand brand-original ${compact ? "compact" : ""} ${prominent ? "prominent" : ""}`}>
+      <img
+        className="brand-original-logo"
+        src={originalLogoPath}
+        alt="Court Rider Attorney partnership"
+        width="860"
+        height="620"
+      />
     </div>
   );
 }
 
 export function BrandMark({ className = "" }: { className?: string }) {
   return (
-    <span className={`brand-mark ${className}`} aria-hidden="true">
-      <svg viewBox="0 0 120 120" focusable="false">
-        {/* Outer paths (Main styling) */}
-        <path className="brand-mark-main" d="M 62 20 L 42 20 A 30 30 0 0 0 42 80 L 67 80 L 67 100" />
-        <path className="brand-mark-main" d="M 77 20 L 87 20 A 20 20 0 0 1 87 60 L 67 60" />
-        <path className="brand-mark-main" d="M 87 60 L 107 100" />
-
-        {/* Inner paths (Accent styling - gold) */}
-        <path className="brand-mark-accent" d="M 62 32 L 50 32 A 18 18 0 0 0 50 68 L 55 68 L 55 100" />
-        <path className="brand-mark-accent" d="M 77 32 L 87 32 A 8 8 0 0 1 87 48 L 55 48" />
-        <path className="brand-mark-accent" d="M 79 72 L 93 100" />
-      </svg>
+    <span className={`brand-mark brand-mark-original ${className}`} aria-hidden="true">
+      <img src={originalLogoPath} alt="" width="860" height="620" />
     </span>
   );
 }
 
-// Keeping these for other sections if needed, but removed the ugly monogram from header
 export function SealMark({ className = "" }: { className?: string }) {
   const topId = useId();
   const bottomId = useId();
@@ -97,4 +87,3 @@ export function KeyMark({ className = "" }: { className?: string }) {
     </span>
   );
 }
-

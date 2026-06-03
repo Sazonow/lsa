@@ -23,7 +23,9 @@ export const serviceOptionsRU = [
   "Недвижимость и строительство",
   "Интеллектуальная собственность",
   "Международное право",
-];export const serviceOptions = [...serviceOptionsUA, ...serviceOptionsRU];
+];
+
+export const serviceOptions = [...serviceOptionsUA, ...serviceOptionsRU];
 
 export function ContactForm({
   navigate,

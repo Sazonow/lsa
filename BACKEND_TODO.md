@@ -4,7 +4,9 @@
 Send contact form submissions to Telegram without exposing the bot token in browser JavaScript.
 
 ## Current Safe State
-- `src/utils/contactService.ts` uses a mock submit only.
+- `src/utils/contactService.ts` submits to `/api/contact`.
+- Local Vite development keeps a safe mock fallback when `/api/contact` is not available.
+- `api/contact.js` contains the Vercel serverless Telegram delivery implementation.
 - No `VITE_TELEGRAM_BOT_TOKEN` is read by client code.
 - No browser request is sent directly to `api.telegram.org`.
 
@@ -19,7 +21,7 @@ Send contact form submissions to Telegram without exposing the bot token in brow
 6. The browser never receives or references the Telegram bot token.
 
 ## Vercel Option
-- Add `api/contact.ts` or `api/contact.js`.
+- `api/contact.js` has been added.
 - Configure Vercel environment variables without the `VITE_` prefix:
   - `TELEGRAM_BOT_TOKEN`
   - `TELEGRAM_CHAT_ID`
@@ -29,6 +31,8 @@ Send contact form submissions to Telegram without exposing the bot token in brow
   - Send Telegram request with `fetch("https://api.telegram.org/bot.../sendMessage")` only inside the serverless function.
   - Return `200` on success and `502` if Telegram fails.
 
-## Client Integration Later
-- Replace mock submit in `src/utils/contactService.ts` with `fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })`.
-- Keep token names server-only and never use `VITE_TELEGRAM_BOT_TOKEN`.
+## Production Checklist
+- Add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` in Vercel project environment variables.
+- Do not use `VITE_` prefixes for these secrets.
+- Submit a test request from the deployed preview and confirm the message arrives in Telegram.
+- If Telegram delivery fails, inspect the Vercel Function logs for `telegram_not_configured`, `telegram_unreachable`, or `telegram_failed`.

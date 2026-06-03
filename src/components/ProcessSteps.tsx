@@ -58,11 +58,16 @@ export const processStepsRU = [
 export function ProcessSteps() {
   const { language } = useLanguage();
   const steps = language === "RU" ? processStepsRU : processStepsUA;
+  const routeLabel = language === "RU" ? "STRATEGY ROUTE" : "STRATEGY ROUTE";
 
   return (
     <section className="process-steps page-pad">
       {steps.map((step, index) => (
         <article className={`process-step reveal reveal-up reveal-delay-${index + 1}`} key={step.number}>
+          <div className="process-step-meta">
+            <span>{routeLabel}</span>
+            <span>STEP {step.number}</span>
+          </div>
           <div className="process-icon">
             <step.icon size={30} strokeWidth={1.35} />
           </div>

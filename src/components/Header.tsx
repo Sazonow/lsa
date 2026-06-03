@@ -41,10 +41,10 @@ export function Header({
 
   return (
     <header className={`site-header ${tone} ${compact ? "compact" : ""} ${showHome ? "with-home" : ""}`}>
-      <LinkButton href="/" navigate={navigate} className="brand" ariaLabel="На головну">
+      <LinkButton href="/" navigate={navigate} className="brand" ariaLabel={t("nav.home")}>
         <BrandLogo compact={compact} prominent={thank} />
       </LinkButton>
-      <nav aria-label="Головна навігація">
+      <nav aria-label={language === "RU" ? "Основная навигация" : "Головна навігація"}>
         {items.map((item) => (
           <LinkButton
             key={`${item.href}-${item.key}`}
@@ -58,7 +58,11 @@ export function Header({
         ))}
       </nav>
       <div className="header-right">
-        <div className="lang-switcher" role="group" aria-label="Выбор языка">
+        <div
+          className="lang-switcher"
+          role="group"
+          aria-label={language === "RU" ? "Выбор языка" : "Вибір мови"}
+        >
           <button
             type="button"
             className={`lang-btn ${language === "UA" ? "active" : ""}`}

@@ -2,7 +2,6 @@ import { Phone, Mail, Instagram, MapPin, LucideIcon } from "lucide-react";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { ContactForm } from "../components/ContactForm";
-import { Map } from "../components/Map";
 import { Navigate, Route } from "../types";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useLanguage } from "../context/LanguageContext";
@@ -55,9 +54,12 @@ export function ContactsPage({
           <span className="cr-watermark">CR</span>
         </div>
         <div className="contact-visual reveal reveal-right">
-          <div id="contacts-map-container" className="contacts-map-wrapper">
-            <Map />
-          </div>
+          <picture className="contact-justice-media" aria-hidden="true">
+            <source srcSet="/assets/optimized/home-hero-bg-960.webp 960w, /assets/optimized/home-hero-bg.webp 1400w" type="image/webp" />
+            <img src="/assets/original/home-hero-bg.png" alt="" loading="lazy" />
+          </picture>
+          <span className="contact-visual-arc" aria-hidden="true" />
+          <span className="contact-visual-line" aria-hidden="true" />
           <ContactForm navigate={navigate} initialService={initialService} />
         </div>
       </section>

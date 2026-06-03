@@ -113,7 +113,7 @@ export function PracticesPage({ navigate, route }: { navigate: Navigate; route: 
       <section className="practice-list page-pad">
         {list.map((item, idx) => (
           <div key={item.title} className={`reveal reveal-up reveal-delay-${(idx % 4) + 1}`}>
-            <PracticeRow item={item} navigate={navigate} />
+            <PracticeRow item={item} navigate={navigate} index={idx} actionLabel={t("practices.cta.btn")} />
           </div>
         ))}
       </section>
@@ -132,7 +132,7 @@ export function PracticesPage({ navigate, route }: { navigate: Navigate; route: 
             type="image/webp"
           />
           <img
-            src="/assets/original/document-pen-original.png"
+            src="/assets/optimized/document-pen-original.webp"
             alt=""
             width="1086"
             height="1448"
@@ -146,18 +146,34 @@ export function PracticesPage({ navigate, route }: { navigate: Navigate; route: 
   );
 }
 
-function PracticeRow({ item, navigate }: { item: Practice; navigate: Navigate }) {
+function PracticeRow({
+  item,
+  navigate,
+  index,
+  actionLabel,
+}: {
+  item: Practice;
+  navigate: Navigate;
+  index: number;
+  actionLabel: string;
+}) {
+  const caseNo = String(index + 1).padStart(2, "0");
+
   return (
     <LinkButton
       href={buildContactHref(item.title)}
       navigate={navigate}
       className="practice-row"
-      ariaLabel={`Discuss: ${item.title}`}
+      ariaLabel={`${actionLabel}: ${item.title}`}
     >
       <div className="practice-row-icon">
         <item.icon size={30} strokeWidth={1.35} />
       </div>
       <div>
+        <span className="practice-row-meta">
+          <span>PRACTICE</span>
+          <span>CASE {caseNo}</span>
+        </span>
         <h2>{item.title}</h2>
         <p>{item.text}</p>
       </div>

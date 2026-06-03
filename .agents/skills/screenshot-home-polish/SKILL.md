@@ -7,7 +7,7 @@ description: Use to finish the Home page visually from screenshot references wit
 
 ## Context
 - No Figma.
-- Reference is `public/reference/01_home.png` and/or `references/mockup.jpg`.
+- Reference is `references/pages/01_home.png` and/or `references/mockup.jpg`.
 - Project is already partially implemented.
 - Preserve current premium legal concept.
 - The mockup is art direction, not pixel-perfect truth.

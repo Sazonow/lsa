@@ -69,7 +69,7 @@ const translations: Record<Language, Record<string, string>> = {
     "practices.lead": "Комплексна правова підтримка для бізнесу та приватних осіб.",
     "practices.cta.title": "Не знайшли потрібний напрям?",
     "practices.cta.desc": "Ми працюємо з унікальними запитами та підбираємо найкращу правову стратегію.",
-    "practices.cta.btn": "Обговорити вашу ситуацию",
+    "practices.cta.btn": "Обговорити вашу ситуацію",
 
     // ExperiencePage
     "experience.title": "Досвід, що говорить про результат",
@@ -88,7 +88,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contacts.email": "Email",
     "contacts.instagram": "Instagram",
     "contacts.office": "Офіс",
-    "contacts.office.address": "01001, м. Київ, вул. Хрещатик, 34, БЦ «Преміум», 7 поверх",
+    "contacts.office.address": "01001, м. Київ, вул. Хрещатик, 34,\nБЦ «Преміум», 7 поверх",
 
     // ContactForm
     "form.title": "Отримати консультацію",
@@ -194,7 +194,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contacts.email": "Email",
     "contacts.instagram": "Instagram",
     "contacts.office": "Офис",
-    "contacts.office.address": "01001, г. Киев, ул. Крещатик, 34, БЦ «Премиум», 7 этаж",
+    "contacts.office.address": "01001, г. Киев, ул. Крещатик, 34,\nБЦ «Премиум», 7 этаж",
 
     // ContactForm
     "form.title": "Получить консультацию",
@@ -224,16 +224,31 @@ const translations: Record<Language, Record<string, string>> = {
 };
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
+const LANGUAGE_STORAGE_KEY = "court_rider_lang";
+
+function isLanguage(value: unknown): value is Language {
+  return value === "UA" || value === "RU";
+}
+
+function getInitialLanguage(): Language {
+  try {
+    const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return isLanguage(saved) ? saved : "UA";
+  } catch {
+    return "UA";
+  }
+}
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem("court_rider_lang");
-    return (saved as Language) || "UA";
-  });
+  const [language, setLanguageState] = useState<Language>(getInitialLanguage);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("court_rider_lang", lang);
+    try {
+      localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+    } catch {
+      // Language switching should still work if storage is unavailable.
+    }
   };
 
   const t = (key: string): string => {

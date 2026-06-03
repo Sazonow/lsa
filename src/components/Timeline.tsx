@@ -59,6 +59,8 @@ export const experienceItemsRU = [
 export function Timeline() {
   const { language } = useLanguage();
   const items = language === "RU" ? experienceItemsRU : experienceItemsUA;
+  const evidenceLabel = language === "RU" ? "EVIDENCE FILE" : "EVIDENCE FILE";
+  const roleLabel = language === "RU" ? "Роль и ценность" : "Роль і цінність";
 
   return (
     <section className="timeline page-pad">
@@ -66,10 +68,20 @@ export function Timeline() {
         <article className="timeline-row reveal reveal-up" key={`${item.year}-${item.title}`}>
           <div className="timeline-year">
             <span>{item.year}</span>
+            <i aria-hidden="true">{String(index + 1).padStart(2, "0")}</i>
           </div>
           <div className="timeline-card">
+            <div className="timeline-card-meta">
+              <span>{evidenceLabel}</span>
+              <span>CASE {String(index + 1).padStart(2, "0")}</span>
+            </div>
             <h2>{item.title}</h2>
-            <p>{item.text}</p>
+            <div className="timeline-card-grid">
+              <p>
+                <span>{roleLabel}</span>
+                {item.text}
+              </p>
+            </div>
           </div>
         </article>
       ))}

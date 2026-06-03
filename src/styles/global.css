@@ -24,7 +24,8 @@ body {
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  text-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
 button,
@@ -72,6 +73,7 @@ h3 {
   font-family: var(--serif);
   font-weight: 500;
   line-height: 1.03;
+  letter-spacing: 0;
 }
 
 h1,
@@ -164,5 +166,4 @@ textarea:focus-visible {
   from { transform: translateY(16px); }
   to { transform: translateY(0); }
 }
-
 

@@ -8,6 +8,7 @@ import { ContactsPage } from "./pages/ContactsPage";
 import { ThankYouPage } from "./pages/ThankYouPage";
 import { serviceOptions } from "./components/ContactForm";
 import { Route, AppLocation, RouteMeta, Navigate } from "./types";
+import { Language, useLanguage } from "./context/LanguageContext";
 
 const routes: Route[] = [
   "/",
@@ -19,62 +20,122 @@ const routes: Route[] = [
   "/thank-you",
 ];
 
-const routeMeta: Record<Route, RouteMeta> = {
-  "/": {
-    title: "КОРТ РАЙДЕР",
-    description:
-      "Адвокатське об'єднання КОРТ РАЙДЕР: стратегічний юридичний супровід бізнесу та приватних осіб.",
-    navLabel: "Головна",
-    tone: "dark",
-    showHome: true,
+const routeMeta: Record<Language, Record<Route, RouteMeta>> = {
+  UA: {
+    "/": {
+      title: "КОРТ РАЙДЕР",
+      description:
+        "Адвокатське об'єднання КОРТ РАЙДЕР: стратегічний юридичний супровід бізнесу та приватних осіб.",
+      navLabel: "Головна",
+      tone: "dark",
+      showHome: true,
+    },
+    "/about": {
+      title: "Про нас | КОРТ РАЙДЕР",
+      description:
+        "Команда адвокатів КОРТ РАЙДЕР з досвідом у складних юридичних питаннях бізнесу та приватних клієнтів.",
+      navLabel: "Про нас",
+      tone: "light",
+      showHome: true,
+    },
+    "/practices": {
+      title: "Практики | КОРТ РАЙДЕР",
+      description:
+        "Корпоративне, податкове, трудове право, судові спори, супровід бізнесу, нерухомість та міжнародне право.",
+      navLabel: "Практики",
+      tone: "light",
+      showHome: true,
+    },
+    "/experience": {
+      title: "Досвід | КОРТ РАЙДЕР",
+      description:
+        "Приклади результативних юридичних справ та комплексного супроводу клієнтів КОРТ РАЙДЕР.",
+      navLabel: "Досвід",
+      tone: "light",
+      showHome: true,
+    },
+    "/process": {
+      title: "Процес роботи | КОРТ РАЙДЕР",
+      description:
+        "Прозорий процес юридичного супроводу: знайомство, стратегія, дії та результат.",
+      navLabel: "Процес роботи",
+      tone: "light",
+      showHome: true,
+    },
+    "/contacts": {
+      title: "Контакти | КОРТ РАЙДЕР",
+      description:
+        "Зв'яжіться з адвокатським об'єднанням КОРТ РАЙДЕР та отримайте юридичну консультацію.",
+      navLabel: "Контакти",
+      tone: "light",
+      showHome: true,
+    },
+    "/thank-you": {
+      title: "Дякуємо | КОРТ РАЙДЕР",
+      description:
+        "Ваш запит успішно відправлено. Команда КОРТ РАЙДЕР зв'яжеться з вами найближчим часом.",
+      navLabel: "Дякуємо",
+      tone: "light",
+      showHome: true,
+    },
   },
-  "/about": {
-    title: "Про нас | КОРТ РАЙДЕР",
-    description:
-      "Команда адвокатів КОРТ РАЙДЕР з досвідом у складних юридичних питаннях бізнесу та приватних клієнтів.",
-    navLabel: "Про нас",
-    tone: "light",
-    showHome: true,
-  },
-  "/practices": {
-    title: "Практики | КОРТ РАЙДЕР",
-    description:
-      "Корпоративне, податкове, трудове право, судові спори, супровід бізнесу, нерухомість та міжнародне право.",
-    navLabel: "Практики",
-    tone: "light",
-    showHome: true,
-  },
-  "/experience": {
-    title: "Досвід | КОРТ РАЙДЕР",
-    description:
-      "Приклади результативних юридичних справ та комплексного супроводу клієнтів КОРТ РАЙДЕР.",
-    navLabel: "Досвід",
-    tone: "light",
-    showHome: true,
-  },
-  "/process": {
-    title: "Процес роботи | КОРТ РАЙДЕР",
-    description:
-      "Прозорий процес юридичного супроводу: знайомство, стратегія, дії та результат.",
-    navLabel: "Процес роботи",
-    tone: "light",
-    showHome: true,
-  },
-  "/contacts": {
-    title: "Контакти | КОРТ РАЙДЕР",
-    description:
-      "Зв'яжіться з адвокатським об'єднанням КОРТ РАЙДЕР та отримайте юридичную консультацію.",
-    navLabel: "Контакти",
-    tone: "light",
-    showHome: true,
-  },
-  "/thank-you": {
-    title: "Дякуємо | КОРТ РАЙДЕР",
-    description:
-      "Ваш запит успішно відправлено. Команда КОРТ РАЙДЕР зв'яжеться з вами найближчим часом.",
-    navLabel: "Дякуємо",
-    tone: "light",
-    showHome: true,
+  RU: {
+    "/": {
+      title: "КОРТ РАЙДЕР",
+      description:
+        "Адвокатское объединение КОРТ РАЙДЕР: стратегическое юридическое сопровождение бизнеса и частных лиц.",
+      navLabel: "Главная",
+      tone: "dark",
+      showHome: true,
+    },
+    "/about": {
+      title: "О нас | КОРТ РАЙДЕР",
+      description:
+        "Команда адвокатов КОРТ РАЙДЕР с опытом в сложных юридических вопросах бизнеса и частных клиентов.",
+      navLabel: "О нас",
+      tone: "light",
+      showHome: true,
+    },
+    "/practices": {
+      title: "Практики | КОРТ РАЙДЕР",
+      description:
+        "Корпоративное, налоговое, трудовое право, судебные споры, сопровождение бизнеса, недвижимость и международное право.",
+      navLabel: "Практики",
+      tone: "light",
+      showHome: true,
+    },
+    "/experience": {
+      title: "Опыт | КОРТ РАЙДЕР",
+      description:
+        "Примеры результативных юридических дел и комплексного сопровождения клиентов КОРТ РАЙДЕР.",
+      navLabel: "Опыт",
+      tone: "light",
+      showHome: true,
+    },
+    "/process": {
+      title: "Процесс работы | КОРТ РАЙДЕР",
+      description:
+        "Прозрачный процесс юридического сопровождения: знакомство, стратегия, действия и результат.",
+      navLabel: "Процесс работы",
+      tone: "light",
+      showHome: true,
+    },
+    "/contacts": {
+      title: "Контакты | КОРТ РАЙДЕР",
+      description:
+        "Свяжитесь с адвокатским объединением КОРТ РАЙДЕР и получите юридическую консультацию.",
+      navLabel: "Контакты",
+      tone: "light",
+      showHome: true,
+    },
+    "/thank-you": {
+      title: "Спасибо | КОРТ РАЙДЕР",
+      description:
+        "Ваш запрос успешно отправлен. Команда КОРТ РАЙДЕР свяжется с вами в ближайшее время.",
+      navLabel: "Спасибо",
+      tone: "light",
+      showHome: true,
+    },
   },
 };
 
@@ -107,11 +168,12 @@ function ensureMeta(selector: string, attributes: Record<string, string>) {
   });
 }
 
-function applyRouteMeta(route: Route) {
-  const meta = routeMeta[route];
+function applyRouteMeta(route: Route, language: Language) {
+  const meta = routeMeta[language][route];
   const url = `${window.location.origin}${route}`;
   const image = `${window.location.origin}/assets/original/home-hero-bg.png`;
 
+  document.documentElement.lang = language === "RU" ? "ru" : "uk";
   document.title = meta.title;
   ensureMeta('meta[name="description"]', { name: "description", content: meta.description });
   ensureMeta('meta[property="og:title"]', { property: "og:title", content: meta.title });
@@ -144,6 +206,7 @@ function applyRouteMeta(route: Route) {
 
 export default function App() {
   const [location, setLocation] = useState<AppLocation>(getLocation);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const onPopState = () => setLocation(getLocation());
@@ -152,8 +215,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    applyRouteMeta(location.route);
-  }, [location.route]);
+    applyRouteMeta(location.route, language);
+  }, [location.route, language]);
 
   const navigate: Navigate = (href) => {
     const url = new URL(href, window.location.origin);

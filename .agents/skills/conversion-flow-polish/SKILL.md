@@ -7,8 +7,9 @@ description: Use to finish Contacts and Thank-you pages as one conversion flow. 
 
 ## Context
 - Telegram token must never be exposed in client code.
-- Real submit may remain mock until backend/serverless endpoint is implemented.
-- `BACKEND_TODO.md` contains backend plan.
+- Contact submit posts to `/api/contact`; local Vite development may use a safe mock fallback.
+- `api/contact.js` contains the serverless Telegram delivery implementation.
+- `BACKEND_TODO.md` contains the remaining production env/deploy checklist.
 - No `VITE_TELEGRAM_BOT_TOKEN` in client.
 - No direct `api.telegram.org` calls from browser code.
 
@@ -21,7 +22,6 @@ Allowed routes:
 - `src/pages/ContactsPage.tsx`
 - `src/pages/ThankYouPage.tsx`
 - `src/components/ContactForm.tsx`
-- `src/components/Map.tsx` only if needed
 - `src/styles/pages.css`
 - `src/styles/components.css`
 - `src/styles/layout.css`
@@ -31,7 +31,7 @@ Allowed routes:
 ## Visual target
 - Premium legal contact page.
 - Form is primary.
-- Map must not dominate if it conflicts with screenshot.
+- Contacts use a premium static Lady Justice visual; do not reintroduce Leaflet or a map-first composition.
 - Thank-you page should be centered, clean, premium, with gold accent.
 - Mobile must be clean.
 

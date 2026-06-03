@@ -29,5 +29,6 @@ public/assets/**/*.png
 public/assets/**/*.jpg
 public/assets/**/*.jpeg
 public/assets/**/*.webp
+references/assets-source/
 !references/mockup.jpg
-!public/reference/*.png
+!references/pages/*.png

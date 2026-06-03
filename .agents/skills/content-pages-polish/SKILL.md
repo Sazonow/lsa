@@ -14,10 +14,10 @@ Allowed routes:
 
 ## Reference files
 Use:
-- `public/reference/02_about.png`
-- `public/reference/03_practices.png`
-- `public/reference/04_cases.png`
-- `public/reference/05_process.png`
+- `references/pages/02_about.png`
+- `references/pages/03_practices.png`
+- `references/pages/04_cases.png`
+- `references/pages/05_process.png`
 - fallback: `references/mockup.jpg`
 
 ## Target
