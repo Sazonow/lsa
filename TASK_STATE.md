@@ -1,3 +1,10 @@
+Single HTML E-1: Self-contained project export branch has been implemented.
+
+- Added `scripts/build-single-html.mjs` to build the existing Vite app and inline the generated CSS, JS, and runtime assets into one HTML document.
+- Added `npm run build:single-html` as the repeatable export command.
+- Output path is `single-html/kort-rider-single.html`; the generated artifact is committed on this export branch so it can be downloaded directly.
+- Preserved the existing React structure, routes, Home GSAP animations, public assets, backend code, dependencies, and visual implementation.
+
 Home B-4.9: Practices pinned entry polish has been implemented.
 
 - Fixed the desktop Home practices pinned scene so the first practice card is already fully readable when the section pins, instead of leaving an almost empty screen with only the heading.
