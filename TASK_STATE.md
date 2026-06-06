@@ -1,3 +1,56 @@
+Home B-4.9: Practices pinned entry polish has been implemented.
+
+- Fixed the desktop Home practices pinned scene so the first practice card is already fully readable when the section pins, instead of leaving an almost empty screen with only the heading.
+- Kept the sequential scroll behavior for cards 2 -> 3 -> 4, preserving the intended screen-by-screen reading rhythm.
+- Preserved the existing practice card visual system, Home structure, routes, contact/backend logic, dependencies, and sections after quote.
+- `npm run build` passes on 2026-06-05.
+- Headless Chrome smoke passed: desktop `1440x1200` shows card 1 visible at practices pin start and all 4 cards visible at the end, no horizontal overflow; mobile `390x1000` remains normal-scroll with no pin-spacer and no horizontal overflow.
+
+Home B-4.8: Hero first-screen QA polish has been implemented.
+
+- Corrected the desktop Home hero to fill the full first viewport instead of ending early and leaving an empty cream band under the hero on tall screens.
+- Kept the values pinned screen as the next section after hero and slightly rebalanced its desktop vertical spacing for a more deliberate screen-by-screen flow.
+- Preserved the approved Home structure, content, routes, backend/contact logic, dependencies, and all sections after quote.
+- `npm run build` passes on 2026-06-05.
+- Headless Chrome smoke passed: desktop `1440x1200` hero is exactly one viewport tall, values starts at the next viewport, values/practices pins remain present, no horizontal overflow; mobile `390x1000` remains unpinned with no horizontal overflow.
+
+Home B-4.7: Values pinned screen fix has been implemented.
+
+- Reworked the Home values + strategy route area into one light pinned desktop screen after the hero, matching the selected mockup direction more closely.
+- Removed the old duplicated values line/circle layer from the rendered DOM and kept one premium icon-frame system for the four value icons.
+- Replaced the inappropriate dark carbon strategy strip with a light legal-docket route panel and delayed the panel reveal until its route phase so it no longer appears empty.
+- Preserved the full Home landing flow after the quote: About, Experience, Process, Contacts, and footer remain present.
+- `npm run build` passes on 2026-06-05.
+- Headless Chrome smoke passed: desktop `1440x1200` has values + practices pin, no horizontal overflow, no `.values-strategic-line` DOM node, and all value/route items are visible at the end of the pinned scene; mobile `390x1000` has no pin-spacers, no horizontal overflow, and values/route reveal through normal scroll.
+
+Home B-4.6: Full landing flow restore has been implemented.
+
+- Restored the missing Home landing sections after the verdict quote: About, values, stats, mission, Experience, Process, Contacts, and footer now render on `/`.
+- Kept the standalone `/about`, `/experience`, `/process`, and `/contacts` pages unchanged.
+- Added Home anchors for `#about`, `#practices`, `#experience`, `#process`, and `#contacts`.
+- Added Home-only reveal safety so embedded Timeline/ProcessSteps content is not hidden without the old IntersectionObserver.
+- `npm run build` passes on 2026-06-05.
+- Browser desktop smoke confirmed Home scroll height ~10442px, overflow `0`, sections present and visible after practices: About, values, Experience, Process, Contacts, footer.
+
+Home B-4.5: Premium pinned sequential motion finish has been implemented.
+
+- Reworked Home GSAP into scoped `useLayoutEffect` + `gsap.matchMedia` timelines with explicit desktop, mobile, and reduced-motion branches.
+- Removed Home `.reveal` conflicts from GSAP-controlled hero, feature, route, practices, and verdict elements.
+- Converted the Home practice area into the single desktop pinned viewport scene: cards reveal sequentially 1 -> 2 -> 3 -> 4 with completed states before the next step.
+- Kept feature and strategy route scroll-bound but unpinned to avoid small-section scroll drag and improve premium flow.
+- Restored visible case-file metadata, icon, title, description, action, dark overlay, and refined card depth/readability across desktop and mobile.
+- `npm run build` passes on 2026-06-05; live Browser smoke confirmed desktop overflow `0`, one `home-practices` pin, mobile no pin-spacers, hero/CTA visible, and Home `.reveal` count `0`.
+
+Home B-4.4: Premium scroll-bound GSAP motion polish has been implemented.
+
+- Added a restrained legal kicker reveal in the Home hero and refined the hero title entrance with a softer premium blur/settle.
+- Upgraded the existing Home GSAP layer with scroll-scrubbed hero depth, overlay darkening, route-line progress, feature reveal, case-card reveal, card-image parallax, and quote mask reveal.
+- Preserved the current Home structure, legal visual direction, routing, translations, contact logic, dependency set, env files, and all non-Home pages.
+- Adjusted mobile Home hero height/spacing so both hero CTAs remain visible below the new kicker.
+- Removed stray `.DS_Store` build payload files from `public`/`dist`.
+- `npm run build`, `npm run verify:translations`, `npm run verify:security`, and `npm run verify:assets` pass on 2026-06-05.
+- Headless Chrome screenshots were captured for Home at desktop `1440x1900` and mobile `390x1600`; mobile CTA clipping was fixed after the first pass.
+
 Home B-4.3: Landing Premium Polish has been implemented on branch `codex/court-rider-landing`.
 
 - Tightened the Home hero height on desktop and mobile so the first viewport shows a clear continuation into the values section.

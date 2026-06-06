@@ -92,9 +92,10 @@
 }
 
 .home-frame .site-header {
-  grid-template-columns: 220px minmax(0, 1fr) 220px;
-  gap: 24px;
-  padding: 28px 0 18px;
+  grid-template-columns: 240px minmax(0, 1fr) 240px;
+  gap: 28px;
+  width: min(1500px, calc(100% - 112px));
+  padding: 30px 0 20px;
 }
 
 .brand {
@@ -154,8 +155,8 @@
 }
 
 .home-frame .brand-original {
-  width: 130px;
-  height: 72px;
+  width: 146px;
+  height: 80px;
 }
 
 .home-frame .brand-name {
@@ -199,9 +200,9 @@
 
 .home-frame .site-header nav {
   justify-content: center;
-  gap: 18px;
-  font-size: 12.2px;
-  letter-spacing: 0.018em;
+  gap: 22px;
+  font-size: 13.4px;
+  letter-spacing: 0.02em;
 }
 
 .nav-link {
